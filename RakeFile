@@ -1,0 +1,28 @@
+#rsync deployment parameters
+ssh_user = 'user@domain.net'
+remote_root = '~/path/to/remote/'
+
+task :deploy do
+  system('rsync -avz --delete _public/ #{ssh_user}:#{remote_root}')
+end
+
+task :jekyll do
+  system(%{
+    cd _source/_layouts/_haml/_jekyll && for f in *.haml;
+    do [ -e $f ] && haml $f ../../${f%.haml}.html; done
+  })
+end
+
+task :haml_pages do
+  system(%{
+    cd _source/_layouts/_haml/_pages && for f in *.haml;
+    do [ -e $f ] && haml $f ../../../${f%.haml}.html; done
+  })
+end
+
+task :sass_style do
+  system(%{
+    cd _source/_layouts/_sass/ && for f in *.scss;
+    do [ -e $f ] && sass $f ../../assets/${f%.scss}.css; done
+  })
+end

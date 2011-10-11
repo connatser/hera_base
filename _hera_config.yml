@@ -1,9 +1,15 @@
+jekyll:
+  id: jekyll
+  type: haml
+  ext: haml
+  src: _source/_layouts/_haml/_jekyll
+  prod: ../../
 pages:
   id: haml_pages
   type: haml
   ext: haml
   src: _source/_layouts/_haml/_pages
-  prod: ../../
+  prod: ../../../
 sass:
   id: sass_style
   type: sass
