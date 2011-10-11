@@ -1,0 +1,12 @@
+pages:
+  id: haml_pages
+  type: haml
+  ext: haml
+  src: _source/_layouts/_haml/_pages
+  prod: ../../
+sass:
+  id: sass_style
+  type: sass
+  ext: scss
+  src: _source/_layouts/_sass/
+  prod: ../../assets/
